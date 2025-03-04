@@ -29,9 +29,10 @@ player_img = pygame.image.load('data/tanchiki.png')
 enemy_img = pygame.image.load('data/tanchiki2.png')
 enemy_img = pygame.transform.rotate(enemy_img, 180) 
 bullet_img = pygame.Surface((10, 5))
-bullet_img.fill(BLUE)
-medkit_img = pygame.Surface((20, 20))
-medkit_img.fill(GREEN)
+bullet_img.fill(RED)
+
+medkit_img = pygame.image.load('data/medkit.png').convert_alpha()
+pygame.transform.scale(medkit_img, (50, 50))
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
