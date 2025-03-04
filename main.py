@@ -24,10 +24,10 @@ pygame.display.set_caption("Великая Отечественная Война
 clock = pygame.time.Clock()
 
 # Загрузка изображений (замените на свои)
-player_img = pygame.Surface((50, 30))
-player_img.fill(GREEN)
-enemy_img = pygame.Surface((40, 25))
-enemy_img.fill(RED)
+player_img = pygame.image.load('data/tanchiki.png')
+
+enemy_img = pygame.image.load('data/tanchiki2.png')
+enemy_img = pygame.transform.rotate(enemy_img, 180) 
 bullet_img = pygame.Surface((10, 5))
 bullet_img.fill(BLUE)
 medkit_img = pygame.Surface((20, 20))
@@ -153,7 +153,7 @@ while running:
     
     # Конец игры
     if player.health <= 0:
-        game_over_text = font.render("ГAME OVER", True, RED)
+        game_over_text = font.render("GAME OVER", True, RED)
         screen.blit(game_over_text, (WIDTH//2 - 100, HEIGHT//2))
         pygame.display.flip()
         pygame.time.wait(3000)
