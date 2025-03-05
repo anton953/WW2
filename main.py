@@ -26,7 +26,7 @@ clock = pygame.time.Clock()
 # Загрузка изображений (замените на свои)
 player_img = pygame.image.load('data/tanchiki.png')
 
-enemy_img = pygame.image.load('data/tanchiki2.png')
+enemy_img = pygame.image.load('data/tanchiki4.png')
 enemy_img = pygame.transform.rotate(enemy_img, 180) 
 bullet_img = pygame.Surface((10, 5))
 bullet_img.fill(RED)
@@ -126,7 +126,7 @@ while running:
     
     # Обновление
     all_sprites.update()
-    
+    # 
     # Столкновения пуль с врагами
     hits = pygame.sprite.groupcollide(enemies, bullets, True, True)
     for hit in hits:
@@ -143,12 +143,13 @@ while running:
     
     # Отрисовка
     screen.fill((0, 0, 0))
+    screen.blit(pygame.image.load('data/fon3.jpg'), (0, 0))
     all_sprites.draw(screen)
     
     # Интерфейс
     font = pygame.font.Font(None, 36)
-    health_text = font.render(f"Здоровье: {player.health}", True, WHITE)
-    score_text = font.render(f"Очки: {player.score}", True, WHITE)
+    health_text = font.render(f"Здоровье: {player.health}", True, (0, 0, 0))
+    score_text = font.render(f"Очки: {player.score}", True, (0, 0, 0))
     screen.blit(health_text, (10, 10))
     screen.blit(score_text, (10, 50))
     
